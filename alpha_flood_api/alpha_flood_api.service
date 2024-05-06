@@ -1,0 +1,17 @@
+[Unit]
+Description=FastAPI Service for alpha_flood
+After=network.target
+
+[Service]
+User=jpournelle
+Group=www-data
+WorkingDirectory=~/alpha_flood/main
+Environment="Path=~/anaconda3/envs/g39/bin"
+ExecStart=~/anaconda3/envs/g39/bin/uvicorn main_api:app --host 0.0.0.0 --port 8000
+#StandardOutput=append:
+#StandardError=inherit
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
