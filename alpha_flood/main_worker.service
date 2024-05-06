@@ -1,0 +1,14 @@
+[Unit]
+Description=This service checks for dbfiles in directory for alpha_flood's main_app
+After=network.target
+
+[Service]
+Type=simple
+User=jpournelle
+Group=www-data
+WorkingDirectory=~/alpha_flood
+ExecStart=~/anaconda3/envs/g39/bin/python3 ~/alpha_flood/main_worker.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
